@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default" v-cloak>
+            <div class="panel-heading">
+                <h4>
+                    <span class="circle" :class="{'active': enabled}"></span>
+                    iDig Station
+                </h4>
+            </div>
+
+            <div class="panel-body panel-status">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tabSettings" data-toggle="tab">
+                            <span class="hidden-xs"> {{t('Settings')}}</span>
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#tabLog" data-toggle="tab">
+                            <span class="hidden-xs">{{t('Log')}}</span>
+                        </a>
+                    </li>
+                </ul>
+                <br/>
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="tabSettings">
+                        <div class="list-group-item alert alert-info">
+                            <div>{{t('You can connect a Total Station to make it available to iDig.')}}</div>
+                            <div>{{t('Make sure the settings below are set (depending on model, not all of them will be available):')}}</div>
+                            <table>
+                                <tr><th>Acknowledge&nbsp;</th><td>Off</td></tr>
+                                <tr><th>Baud Rate</th><td>9600</td></tr>
+                                <tr><th>Data Bits</th><td>8</td></tr>
+                                <tr><th>Device Type</th><td>RS232 GeoCOM</td></tr>
+                                <tr><th>Endmark</th><td>CR/LF</td></tr>
+                                <tr><th>GSI Format</th><td>GSI 16 Cartesian</td></tr>
+                                <tr><th>GSI-Mask</th><td>Mask 2</td></tr>
+                                <tr><th>Parity</th><td>None</td></tr>
+                                <tr><th>Protocol</th><td>RS232 GSI</td></tr>
+                                <tr><th>Stop Bit</th><td>1</td></tr>
+                            </table>
+                        </div>
+                        <div class="list-group">
+                            <span class="list-group-item slider-btn-inlist">
+                                <div class="text-left ">{{t('Enable')}}</div>
+                                <div class="pull-right btn-toggler-right">
+                                    <gl-tg-btn size="22px" theme="default" v-model='enabled'></gl-tg-btn>
+                                </div>
+                            </span>
+                            <span class="list-group-item slider-btn-inlist ">
+                                <div class="text-left pull-left">{{t('Name')}}:</div>
+                                <div class="list-input-field">
+                                    <gl-input v-model="name" :placeholder="$lang.holdPlace.required">
+                                    </gl-input>
+                                </div>
+                                <div class="clearfix"></div>
+                            </span>
+                            <span class="list-group-item text-center">
+                                <gl-btn type="purple" @click="setStation">{{t('Apply')}}</gl-btn>
+                            </span>        
+                        </div>        
+                    </div>
+                    <div class="tab-pane fade" id="tabLog" >
+                        <table style="color: black">
+                            <tr v-for="entry in log">
+                                <td>{{ entry }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

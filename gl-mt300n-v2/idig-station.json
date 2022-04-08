@@ -1,0 +1,18 @@
+{
+	"packages": {
+		"basic": "libustream-openssl -dnsmasq dnsmasq-full -wpad-mini iwinfo kmod-nls-cp437 kmod-nls-iso8859-1 kmod-nls-utf8 kmod-nf-nathelper kmod-nf-nathelper-extra ethtool fcgi lighttpd lighttpd-mod-access lighttpd-mod-cgi lighttpd-mod-expire lighttpd-mod-fastcgi lighttpd-mod-proxy unzip wpa-cli bridge ip-full -unbound stubby mwan3 -wpad-basic wpad-openssl -PCI_SUPPORT -luci -luci-mod-rpc ipset",
+		"usb": "kmod-usb-storage-uas kmod-usb-storage kmod-usb-uhci kmod-usb2 kmod-usb-ohci kmod-usb-acm kmod-usb-net-huawei-cdc-ncm comgt chat comgt-directip comgt-ncm kmod-usb-serial kmod-usb-serial-cp210x kmod-usb-serial-option kmod-usb-serial-wwan kmod-usb-serial-sierrawireless kmod-rt2800-usb usb-modeswitch kmod-mppe kmod-usb-net kmod-usb-net-cdc-ether kmod-usb-net-rndis kmod-usb-net-qmi-wwan uqmi kmod-usb-net-ipheth libusbmuxd libimobiledevice usbmuxd kmod-usb-serial-pl2303 kmod-usb-serial-ftdi usbutils",
+		"glinet": "-gl-airkiss gl-crond gl-s2s gl-portal gl-cloud-ui gl-route-policy gl-qos-internal gl-tertf gl-fw gl-base-files -gl-files-browser gl-firewall gl-modem gl-repeater gl-sdk gl-software gl-ui gl-util gl-wan-detect gl-wifi-core gl-monitor gl-ipv6 gl-rtty gl-upload"
+	},
+	"profiles": {
+		"idig-station": {
+			"state": "develop",
+			"disabled": 0,
+			"profile": "gl-mt300n-v2",
+			"version": "1.0",
+			"imagebuilder": "3.8/openwrt-imagebuilder-ramips-mt76x8_3.8",
+			"files": "files",
+			"packages": "$glinet -gl-qos gl-qos-internal gl-base-files-mt -kmod-mt76 -kmod-mt76-core -kmod-mt7603 kmod-mt7628 $basic $usb -wpa-cli -kmod-rt2800-usb -lighttpd-mod-openssl gl-sdk4-mtk-apcli mt76x8-uci2dat"
+		}
+	}
+}

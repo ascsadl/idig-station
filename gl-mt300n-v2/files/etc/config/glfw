@@ -1,0 +1,14 @@
+config globals 'globals'
+	option enabled '1'
+
+config opening
+	option name 'ssh'
+	option port '22'
+	option proto 'TCP/UDP'
+	option status 'Enabled'
+
+config opening
+	option name 'idig-station'
+	option port '4000'
+	option proto 'TCP/UDP'
+	option status 'Enabled'
